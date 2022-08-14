@@ -1,0 +1,14 @@
+---
+- name: Remove Docker
+  hosts: all
+  become: true
+  tasks:
+    - name: Remove Docker
+      ansible.builtin.yum:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: absent
+        update_cache: true
+
